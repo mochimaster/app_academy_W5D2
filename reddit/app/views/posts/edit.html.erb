@@ -1,0 +1,18 @@
+<h1>Posts Edit</h1>
+
+<form action="<%= post_url(@post)%>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
+  <label>Title
+    <input type="text" name="post[title]" value="<%=@post.title%>">
+  </label>
+
+  <label>URL
+    <input type="text" name="post[url]" value="<%=@post.url%>">
+  </label>
+
+  <label>Content
+    <input type="text" name="post[content]" value="<%=@post.content%>">
+  </label>
+  <input type="submit" name="" value="Update Post">
+</form>

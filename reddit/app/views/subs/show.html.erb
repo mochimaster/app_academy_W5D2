@@ -1,0 +1,28 @@
+<h1>Subs#show</h1>
+
+<br>
+Title: <%= @sub.title %>
+<br>
+Description: <%= @sub.description %>
+<br>
+
+<a href="<%=new_sub_post_url(@sub)%>">Create New Post</a>
+
+
+
+<ul>
+  <% @sub.posts.each do |post| %>
+    <li>  <a href="<%=post_url(post)%>"><%= post.title %></a>
+
+      <form action="<%= post_url(post)%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+        <input type="submit" name="" value="Remove Post">
+      </form>
+
+
+    </li>
+  <% end %>
+</ul>
+
+<a href="<%= subs_url%>">Subs Index</a>

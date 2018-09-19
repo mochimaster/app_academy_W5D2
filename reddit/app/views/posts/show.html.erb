@@ -1,0 +1,19 @@
+<h1>Posts#show</h1>
+Author:  <%= @post.author.username %>
+<br>
+Title:   <%= @post.title %>
+<br>
+URL:     <%= @post.url %>
+<br>
+Content: <%= @post.content %>
+<br>
+<form action="<%= post_url(@post)%>" method="post">
+  <input type="hidden" name="_method" value="delete">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <input type="submit" name="" value="Remove Post">
+</form>
+
+<form action="<%= edit_post_url(@post)%>" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <input type="submit" name="" value="Edit Post">
+</form>

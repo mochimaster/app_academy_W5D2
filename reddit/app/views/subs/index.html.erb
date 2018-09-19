@@ -1,0 +1,17 @@
+<h1>Subs index</h1>
+
+<form action="<%= new_sub_url%>" method="get">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <input type="submit" name="" value="Create New Sub">
+</form>
+
+<% @subs.each do |sub| %>
+  <li><a href="<%=sub_url(sub)%>"><%= sub.title %></a></li>
+
+  <% if sub.moderator.id == current_user.id %>
+    <form action="<%= edit_sub_url(sub)%>" method="get">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+      <input type="submit" name="" value="Edit Sub">
+    </form>
+  <% end %>
+<% end %>
